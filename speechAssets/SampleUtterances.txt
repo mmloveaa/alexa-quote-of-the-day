@@ -1,14 +1,14 @@
-GetNewFactIntent a fact
-GetNewFactIntent a space fact
+GetNewFactIntent a quote
+GetNewFactIntent a burton quote
 GetNewFactIntent tell me a fact
-GetNewFactIntent tell me a space fact
+GetNewFactIntent tell me a quote
 GetNewFactIntent give me a fact
-GetNewFactIntent give me a space fact
-GetNewFactIntent tell me trivia
-GetNewFactIntent tell me a space trivia
-GetNewFactIntent give me trivia
-GetNewFactIntent give me a space trivia
-GetNewFactIntent give me some information
-GetNewFactIntent give me some space information
+GetNewFactIntent give me a quote
+GetNewFactIntent tell me quote
+GetNewFactIntent tell me a burton quote
+GetNewFactIntent give me quote
+GetNewFactIntent give me a burton quote
+GetNewFactIntent give me some quotes
+GetNewFactIntent give me some burton quotes
 GetNewFactIntent tell me something
 GetNewFactIntent give me something
