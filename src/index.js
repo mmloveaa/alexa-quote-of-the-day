@@ -44,6 +44,12 @@ var BURTON_QUOTE = [
     "I don't use my pinky to hold my laptop."
 ];
 
+var CATEGORY_TO_QUOTE = {
+    "focus": ["Worry about yourself","Stay Focus! Stay Focus now!","Kid, no excuses!", "You gotta Focus!!!" ],
+    "success": ["I have 24 hours in a day, kid. I don't sleep when i need to.", "What the fork is wrong with my code! This is bullshit", "Keep Calm and Make Today Productive", "I am on a mission, be productive"],
+    "talkDirty": ["Talk dirty to me, Alexa", "I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "No Pussy here. Be a Man", "Alexa who's your daddy? Amazon" ]
+ };
+
 /**
  * The AlexaSkill prototype and helper functions
  */
@@ -84,7 +90,7 @@ BurtonQuote.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 };
 
 BurtonQuote.prototype.intentHandlers = {
-    "GetNewFactIntent": function (intent, session, response) {
+    "GetNewQuoteIntent": function (intent, session, response) {
         handleNewFactRequest(response);
     },
 
@@ -113,6 +119,17 @@ function handleNewFactRequest(response) {
 
     // Create speech output
     var speechOutput = "Here's your Burton Quote: " + quote;
+
+    response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
+}
+
+function findRandomQuote(response) {
+
+    var quotes = CATEGORY_TO_QUOTE[response];
+    var index = Math.floor(Math.random() * quotes.length);
+
+
+    var speechOutput = "Here's your Burton Quote: " + quotes[index];
 
     response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
 }

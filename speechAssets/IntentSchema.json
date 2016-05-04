@@ -1,7 +1,13 @@
 {
   "intents": [
     {
-      "intent": "GetNewFactIntent"
+      "intent": "GetNewQuoteIntent",
+       "slots": [
+         {
+           "name": "Category",
+           "type": "LIST_OF_QUTOES"
+         }
+       ]
     },
     {
       "intent": "AMAZON.HelpIntent"
