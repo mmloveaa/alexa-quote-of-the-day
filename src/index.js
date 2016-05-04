@@ -23,15 +23,11 @@
  */
 var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 
-/**
- * Array containing space quotes.
- */
-
 var CATEGORY_TO_QUOTE = {
     "focus": ["Worry about yourself","Stay Focus! Stay Focus now!","Kid, no excuses!", "You gotta Focus!!!" ],
     "success": ["I have 24 hours in a day. I don't sleep when i need to.", "What is wrong with my code! This is bullshit", "Keep Calm and Make Today Productive", "I am on a mission, be productive"],
-    "talkDirty": ["I don't use my pinky to hold my laptop.", "Do you have coke?" ]
- };
+    "talk dirty": ["I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "Alexa who's your daddy? Amazon" ]
+};
 
 /**
  * The AlexaSkill prototype and helper functions
@@ -55,12 +51,19 @@ BurtonQuote.prototype.constructor = BurtonQuote;
 BurtonQuote.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     console.log("BurtonQuote onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
-    // any initialization logic goes here
 };
 
 BurtonQuote.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("BurtonQuote onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    findRandomQuote(response);
+    var speechOutput = {
+        speech: "What do you want me to focus on?",
+        type: AlexaSkill.speechOutputType.PLAIN_TEXT
+    };
+    var repromptOutput = {
+        speech: "well come on..",
+        type: AlexaSkill.speechOutputType.PLAIN_TEXT
+    };
+    response.ask(speechOutput, repromptOutput);
 };
 
 /**
@@ -74,7 +77,7 @@ BurtonQuote.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 
 BurtonQuote.prototype.intentHandlers = {
     "GetNewQuoteIntent": function (intent, session, response) {
-        findRandomQuote(response);
+        handleNewFactRequest(intent, response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
@@ -95,16 +98,14 @@ BurtonQuote.prototype.intentHandlers = {
 /**
  * Gets a random new quote from the list and returns to the user.
  */
+ function handleNewFactRequest(intent, response) {
+    // Get a random space quote from the space quotes list
+    var quotes = CATEGORY_TO_QUOTE[intent.slots.Category.value];
+    var quoteIndex = Math.floor(Math.random() * quotes.length);
+    var quote = quotes[quoteIndex];
 
-
-function findRandomQuote(response) {
-
-    var cat = intent.slots.type;
-    var quotes = CATEGORY_TO_QUOTE[cat];
-    var index = Math.floor(Math.random() * quotes.length);
-
-
-    var speechOutput = "Here's your Burton Quote: " + quotes[index];
+    // Create speech output
+    var speechOutput = "Here's your Burton Quote: " + quote;
 
     response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
 }
