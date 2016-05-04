@@ -60,7 +60,7 @@ BurtonQuote.prototype.eventHandlers.onLaunch = function (launchRequest, session,
         type: AlexaSkill.speechOutputType.PLAIN_TEXT
     };
     var repromptOutput = {
-        speech: "well come on..",
+        speech: "Please tell me what quote do you want?",
         type: AlexaSkill.speechOutputType.PLAIN_TEXT
     };
     response.ask(speechOutput, repromptOutput);
