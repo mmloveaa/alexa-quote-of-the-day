@@ -1,12 +1,34 @@
 
-intent - An object that represents the user's request. e.g., Their intent to ask for a quote of the day.
-  - There are built in default intents such as e.g., stop, help, etc.
+intent object- An object that represents the user's request. e.g., Their intent to ask for a quote of the day.
+  * There are built in default intents such as e.g., stop, help, etc.
 
-response - This object provides a way for Alexa to send information back to the user. e.g., What to "tell" the user or "ask" the user.
-session - This contains information about the dialog/conversation between the user and Alexa.
+  Each intent has two properties:
+  - The intent property gives the name of the intent.
+  - The slots property lists the slots associated with that intent.
+
+response object- This object provides a way for Alexa to send information back to the user. e.g., What to "tell" the user or "ask" the user.
+  * The two key differences between "tell and ask"
+   1) the session is kept open, waiting for a further response from the user.
+   2) the second argument is a string that Alexa will speak to the user if they haven’t responded to specify what they want.
+
+session object- This contains information about the dialog/conversation between the user and Alexa.
+
+
+
 slots - Is a way for the user to provide variable input. e.g., tell me a fact about "____"
+  * There are built in Amazon slots such as AMAZON.DATE, AMAZON.US_CITY
+  * Slots are arguments to intents.
+  * A custom slot type consists of a name and a line-separated list of values.
+
+
+Utterance - Each possible sample utterance is assigned to one of the defined intents.
+
+"what will the horoscope for {Sign} be on {Date}"
+In this utterance, the slots {Sign} and {Date} serve as arguments to the GetHoroscope intent, and are placed as variables in this utterance pattern.
 
 
 Lifecycle of an Alexa Skill
-  - onLaunch
-  - ...
+  - onSessionStarted(sessionStartedRequest, session)
+  - onLaunch(launchRequest, session, response)
+  - onIntent(intentRequest, session, response)
+  - onSessionEnded(sessionEndedRequest, session)
