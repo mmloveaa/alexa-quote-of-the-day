@@ -26,7 +26,7 @@ var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-valu
 var CATEGORY_TO_QUOTE = {
     "focus": ["Worry about yourself","Stay Focus! Stay Focus now!","Kid, no excuses!", "You gotta Focus!!!" ],
     "success": ["I have 24 hours in a day. I don't sleep when i need to.", "What is wrong with my code! This is bullshit", "Keep Calm and Make Today Productive", "I am on a mission, be productive"],
-    "talk dirty": ["I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "Alexa who's your daddy? Amazon" ]
+    "talk dirty": ["I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "How much is the coke?"]
 };
 
 /**

@@ -1,1 +1,12 @@
 
+intent - An object that represents the user's request. e.g., Their intent to ask for a quote of the day.
+  - There are built in default intents such as e.g., stop, help, etc.
+
+response - This object provides a way for Alexa to send information back to the user. e.g., What to "tell" the user or "ask" the user.
+session - This contains information about the dialog/conversation between the user and Alexa.
+slots - Is a way for the user to provide variable input. e.g., tell me a fact about "____"
+
+
+Lifecycle of an Alexa Skill
+  - onLaunch
+  - ...
