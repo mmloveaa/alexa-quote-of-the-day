@@ -51,5 +51,9 @@ Lifecycle of an Alexa Skill
   5/5
 
    - Look at WiseGuy example
-   - Create multiple stage conversation
+   - Create multiple stages conversation
    - more on the Alexa life cycle
+
+   - ScoreKeeper using amazon dynamodb
+   - Persisting state between sessions using the dynamodb
+   - Using a custom slot type with a list of representative values
