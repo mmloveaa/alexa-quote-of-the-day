@@ -11,8 +11,6 @@ response object- This object provides a way for Alexa to send information back t
    1) the session is kept open, waiting for a further response from the user.
    2) the second argument is a string that Alexa will speak to the user if they haven’t responded to specify what they want.
 
-session object- This contains information about the dialog/conversation between the user and Alexa.
-
 
 
 slots - Is a way for the user to provide variable input. e.g., tell me a fact about "____"
@@ -32,3 +30,12 @@ Lifecycle of an Alexa Skill
   - onLaunch(launchRequest, session, response)
   - onIntent(intentRequest, session, response)
   - onSessionEnded(sessionEndedRequest, session)
+
+
+5/4
+
+  session object- This contains information about the dialog/conversation between the user and Alexa.
+
+  SSML- Speech Synthesis Markup Language (SSML)
+  SSML is a markup language that provides a standard way to mark up text for the generation of synthetic speech.
+  For example, you may want a longer pause within the speech, or you may want a string of digits read back as a standard telephone number. 
