@@ -45,4 +45,11 @@ Lifecycle of an Alexa Skill
 
   intentHandlers have different intent objects in which each is a function of the request i.e function handleNewFactRequest(intent, response)
 
- 
+
+  Check execute method in Alexa js file
+
+  5/5
+
+   - Look at WiseGuy example
+   - Create multiple stage conversation
+   - more on the Alexa life cycle
