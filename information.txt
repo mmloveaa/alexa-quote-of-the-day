@@ -50,10 +50,19 @@ Lifecycle of an Alexa Skill
 
   5/5
 
-   - Look at WiseGuy example
+   - Look at WiseGuy example // Done
    - Create multiple stages conversation
    - more on the Alexa life cycle
 
    - ScoreKeeper using amazon dynamodb
    - Persisting state between sessions using the dynamodb
    - Using a custom slot type with a list of representative values
+
+  5/6
+
+  - find out the differences between launchRequest and intentRequest
+  - more on session
+  - create a dialogue (e.g wise guy , cake maker)
+  - more on amazon dynamodb (e.g scoreKeeper)
+  - read the 5 posts about creating custom skills
+  - read the example about the text skill
