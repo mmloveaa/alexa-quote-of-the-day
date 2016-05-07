@@ -51,6 +51,9 @@ BurtonQuote.prototype.constructor = BurtonQuote;
 BurtonQuote.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     console.log("BurtonQuote onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
+
+        var numOfQuote = session.attributes.numOfQuote;
+            numOfQuote = 0;
 };
 
 BurtonQuote.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
@@ -77,6 +80,7 @@ BurtonQuote.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 
 BurtonQuote.prototype.intentHandlers = {
     "GetNewQuoteIntent": function (intent, session, response) {
+        numOfQuote ++;
         handleNewFactRequest(intent, response);
     },
 
@@ -107,7 +111,7 @@ BurtonQuote.prototype.intentHandlers = {
 /**
  * Gets a random new quote from the list and returns to the user.
  */
- var numOfQuote = 1;
+
 
  function handleNewFactRequest(intent, response) {
     // Get a random space quote from the space quotes list
