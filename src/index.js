@@ -107,6 +107,8 @@ BurtonQuote.prototype.intentHandlers = {
 /**
  * Gets a random new quote from the list and returns to the user.
  */
+ var numOfQuote = 1;
+
  function handleNewFactRequest(intent, response) {
     // Get a random space quote from the space quotes list
     var quotes = CATEGORY_TO_QUOTE[intent.slots.Category.value];
@@ -116,10 +118,9 @@ BurtonQuote.prototype.intentHandlers = {
     // Create speech output
     var speechOutput = {
         type: AlexaSkill.speechOutputType.SSML,
-        speech: "<speak>Here is your Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/>  do you want another quote?</speak>"
+        speech: "<speak>Here is" + numOfQuote + "Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/>  do you want another quote?</speak>"
     }
 
-    // response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
         response.ask(speechOutput);
 }
 
