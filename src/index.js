@@ -51,9 +51,7 @@ BurtonQuote.prototype.constructor = BurtonQuote;
 BurtonQuote.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
     console.log("BurtonQuote onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
-
-        var numOfQuote = session.attributes.numOfQuote;
-            numOfQuote = 0;
+        session.attributes.count = 0;
 };
 
 BurtonQuote.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
@@ -80,7 +78,6 @@ BurtonQuote.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 
 BurtonQuote.prototype.intentHandlers = {
     "GetNewQuoteIntent": function (intent, session, response) {
-        numOfQuote ++;
         handleNewFactRequest(intent, response);
     },
 
@@ -118,14 +115,15 @@ BurtonQuote.prototype.intentHandlers = {
     var quotes = CATEGORY_TO_QUOTE[intent.slots.Category.value];
     var quoteIndex = Math.floor(Math.random() * quotes.length);
     var quote = quotes[quoteIndex];
+    session.attributes.count ++;
 
     // Create speech output
     var speechOutput = {
         type: AlexaSkill.speechOutputType.SSML,
-        speech: "<speak>Here is" + numOfQuote + "Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/>  do you want another quote?</speak>"
+        speech: "<speak>Here is" + session.attributes.count + "Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/>  do you want another quote?</speak>"
     }
 
-        response.ask(speechOutput);
+    response.ask(speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
