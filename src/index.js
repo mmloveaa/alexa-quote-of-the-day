@@ -26,7 +26,7 @@ var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-valu
 var CATEGORY_TO_QUOTE = {
     "focus": ["Worry about yourself","Stay Focus! Stay Focus now!","Kid, no excuses!", "You gotta Focus!!!" ],
     "success": ["I have 24 hours in a day. I don't sleep when i need to.", "What is wrong with my code! This is bullshit", "Keep Calm and Make Today Productive", "I am on a mission, be productive"],
-    "talk dirty": ["I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "How much is the coke?"]
+    "dirty": ["I am so dirty. I need to wash my hair, brush my teeth, clean my dishes", "I don't use my pinky to hold my laptop.", "Do you have coke?", "How much is the coke?"]
 };
 
 /**
@@ -84,6 +84,16 @@ BurtonQuote.prototype.intentHandlers = {
         response.ask("You can ask Burton Quote tell me a quote, or, you can say exit... What can I help you with?", "What can I help you with?");
     },
 
+    // "AMAZON.YesIntent": function (intent, session, response) {
+    //     var speechOutput = "Please tell me what quote do you want?";
+    //     response.tell(speechOutput);
+    // },
+    //
+    // "AMAZON.NoIntent": function (intent, session, response) {
+    //     var speechOutput = "Goodbye";
+    //     response.tell(speechOutput);
+    // },
+
     "AMAZON.StopIntent": function (intent, session, response) {
         var speechOutput = "Goodbye";
         response.tell(speechOutput);
@@ -105,9 +115,13 @@ BurtonQuote.prototype.intentHandlers = {
     var quote = quotes[quoteIndex];
 
     // Create speech output
-    var speechOutput = "Here's your Burton Quote: " + quote;
+    var speechOutput = {
+        type: AlexaSkill.speechOutputType.SSML,
+        speech: "<speak>Here is you Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/> do you want another quote?</speak>"
+    }
 
-    response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
+    // response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
+        response.tell(speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
