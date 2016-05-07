@@ -85,7 +85,7 @@ BurtonQuote.prototype.intentHandlers = {
     },
 
     "AMAZON.YesIntent": function (intent, session, response) {
-        response.tell("What do you want me to focus on?");
+        response.ask("What do you want me to focus on?");
     },
 
     "AMAZON.NoIntent": function (intent, session, response) {
@@ -116,7 +116,7 @@ BurtonQuote.prototype.intentHandlers = {
     // Create speech output
     var speechOutput = {
         type: AlexaSkill.speechOutputType.SSML,
-        speech: "<speak>Here is you Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/> do you want another quote?</speak>"
+        speech: "<speak>Here is your Burton Quote: <break time='2s'/>" + quote + " <break time='2s'/>  do you want another quote?</speak>"
     }
 
     // response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);

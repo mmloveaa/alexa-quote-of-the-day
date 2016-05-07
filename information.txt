@@ -66,3 +66,12 @@ Lifecycle of an Alexa Skill
   - more on amazon dynamodb (e.g scoreKeeper)
   - read the 5 posts about creating custom skills
   - read the example about the text skill
+
+
+  Book  - finite state machine (FSM)
+
+  
+  on the first quote
+
+  "Here is your first quote" + quote + <break /> + "would you like to hear another one?"
+  "Here is your quote" + quote + "I already told you # quote, would you like to hear another one?"
