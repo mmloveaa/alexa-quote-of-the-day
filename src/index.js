@@ -84,15 +84,14 @@ BurtonQuote.prototype.intentHandlers = {
         response.ask("You can ask Burton Quote tell me a quote, or, you can say exit... What can I help you with?", "What can I help you with?");
     },
 
-    // "AMAZON.YesIntent": function (intent, session, response) {
-    //     var speechOutput = "Please tell me what quote do you want?";
-    //     response.tell(speechOutput);
-    // },
-    //
-    // "AMAZON.NoIntent": function (intent, session, response) {
-    //     var speechOutput = "Goodbye";
-    //     response.tell(speechOutput);
-    // },
+    "AMAZON.YesIntent": function (intent, session, response) {
+        response.tell("What do you want me to focus on?");
+    },
+
+    "AMAZON.NoIntent": function (intent, session, response) {
+        var speechOutput = "Goodbye";
+        response.tell(speechOutput);
+    },
 
     "AMAZON.StopIntent": function (intent, session, response) {
         var speechOutput = "Goodbye";
@@ -121,7 +120,7 @@ BurtonQuote.prototype.intentHandlers = {
     }
 
     // response.tellWithCard(speechOutput, "BurtonQuote", speechOutput);
-        response.tell(speechOutput);
+        response.ask(speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
