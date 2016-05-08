@@ -70,8 +70,18 @@ Lifecycle of an Alexa Skill
 
   Book  - finite state machine (FSM)
 
-  
+
   on the first quote
 
   "Here is your first quote" + quote + <break /> + "would you like to hear another one?"
   "Here is your quote" + quote + "I already told you # quote, would you like to hear another one?"
+
+  5/7
+
+  Learned
+  - Amazon.literal
+  - session
+  - Custom slots
+  - Response object for OnLaunch, onIntent
+  - Life cycle
+  - SSML

@@ -78,7 +78,7 @@ BurtonQuote.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 
 BurtonQuote.prototype.intentHandlers = {
     "GetNewQuoteIntent": function (intent, session, response) {
-        handleNewFactRequest(intent, response);
+        handleNewFactRequest(intent,session, response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
@@ -110,7 +110,7 @@ BurtonQuote.prototype.intentHandlers = {
  */
 
 
- function handleNewFactRequest(intent, response) {
+ function handleNewFactRequest(intent, seesion, response) {
     // Get a random space quote from the space quotes list
     var quotes = CATEGORY_TO_QUOTE[intent.slots.Category.value];
     var quoteIndex = Math.floor(Math.random() * quotes.length);
